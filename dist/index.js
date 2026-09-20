@@ -6,6 +6,16 @@ function getEnv(name, fallback = '') {
   return process.env[name] || process.env[name.replace(/-/g, '_')] || fallback;
 }
 
+function escapeXml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 const token = getEnv('INPUT_GITHUB-TOKEN') || process.env.GITHUB_TOKEN || '';
 const username = getEnv('INPUT_USERNAME') || process.env.GITHUB_REPOSITORY_OWNER || '';
 const theme = getEnv('INPUT_THEME', 'cyan-cyber');
@@ -56,19 +66,19 @@ function githubGraphQL(query) {
 }
 
 async function run() {
-  console.log(`\x1b[35m🎨 Rayz Glass Bento Cards — Developed by Pheonix14\x1b[0m`);
+  console.log(`Rayz Glass Bento Cards - Developed by Pheonix14`);
   console.log(`Generating glassmorphic portfolio bento card for @${username}...`);
 
   let user = {
     name: username,
-    bio: 'Software Engineer & Open Source Builder',
-    publicRepos: 38,
+    bio: 'Software Engineer and Open Source Builder',
+    publicRepos: 41,
     followers: 4,
     totalStars: 12,
     languages: [
       { name: 'TypeScript', color: '#3178c6', percent: 45 },
       { name: 'Python', color: '#3572A5', percent: 30 },
-      { name: 'CSS / Glass', color: '#0affe4', percent: 15 },
+      { name: 'CSS', color: '#0affe4', percent: 15 },
       { name: 'Rust', color: '#dea584', percent: 10 }
     ]
   };
@@ -186,10 +196,10 @@ async function run() {
   <!-- Top Hero Tile -->
   <rect x="30" y="30" width="370" height="110" rx="14" fill="url(#tileGlass)" stroke="url(#cyberBorder)" stroke-width="1.2" />
   <circle cx="65" cy="70" r="22" fill="#0f172a" stroke="${primaryGlow}" stroke-width="2" />
-  <text x="65" y="76" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="16" fill="${primaryGlow}">${username.charAt(0).toUpperCase()}</text>
-  <text x="100" y="65" class="name">${user.name}</text>
-  <text x="100" y="82" class="handle">@${username}</text>
-  <text x="100" y="105" class="bio">${user.bio.substring(0, 42)}</text>
+  <text x="65" y="76" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="16" fill="${primaryGlow}">${escapeXml(username.charAt(0).toUpperCase())}</text>
+  <text x="100" y="65" class="name">${escapeXml(user.name)}</text>
+  <text x="100" y="82" class="handle">@${escapeXml(username)}</text>
+  <text x="100" y="105" class="bio">${escapeXml(user.bio.substring(0, 42))}</text>
 
   <!-- Top Stats Bento Tiles -->
   <g transform="translate(415, 30)">
@@ -208,7 +218,7 @@ async function run() {
 
   <!-- Languages Bento Tile -->
   <rect x="30" y="155" width="590" height="120" rx="14" fill="url(#tileGlass)" stroke="#334155" stroke-width="1" />
-  <text x="50" y="182" class="lang-lbl" style="fill: #f8fafc; font-weight: 800; font-size: 13px;">⚡ Top Languages &amp; Core Stack</text>
+  <text x="50" y="182" class="lang-lbl" style="fill: #f8fafc; font-weight: 800; font-size: 13px;">Top Languages and Core Stack</text>
 
   <!-- Multi-Segment Language Bar -->
   <g transform="translate(50, 196)">
@@ -229,20 +239,20 @@ async function run() {
     ${user.languages.map((l, i) => `
       <g transform="translate(${i * 135}, 0)">
         <circle cx="5" cy="5" r="4" fill="${l.color}" />
-        <text x="16" y="9" class="lang-lbl">${l.name} <tspan fill="#64748b">(${l.percent}%)</tspan></text>
+        <text x="16" y="9" class="lang-lbl">${escapeXml(l.name)} <tspan fill="#64748b">(${l.percent}%)</tspan></text>
       </g>
     `).join('\n    ')}
   </g>
 
-  <!-- Divider & Prominent Pheonix14 Attribution -->
+  <!-- Divider & Pheonix14 Attribution -->
   <line x1="30" y1="290" x2="620" y2="290" stroke="#1e293b" stroke-width="1" />
-  <text x="30" y="312" class="footer">⚡ Developed by Pheonix14</text>
-  <text x="620" y="312" text-anchor="end" class="footer-right">⭐ Star on GitHub: github.com/pheonix14 • Follow @pheonix14</text>
+  <text x="30" y="312" class="footer">Developed by Pheonix14</text>
+  <text x="620" y="312" text-anchor="end" class="footer-right">Star on GitHub: github.com/pheonix14 | Follow @pheonix14</text>
 </svg>
   `.trim();
 
   fs.writeFileSync(path.resolve(process.cwd(), outputPath), svg, 'utf-8');
-  console.log(`\x1b[32m✔ Successfully generated Rayz Glass Card SVG at: ${outputPath}\x1b[0m`);
+  console.log(`Successfully generated Rayz Glass Card SVG at: ${outputPath}`);
 
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(process.env.GITHUB_OUTPUT, `card-path=${outputPath}\n`);
@@ -250,6 +260,6 @@ async function run() {
 }
 
 run().catch(err => {
-  console.error('\x1b[31mAction Execution Failed:\x1b[0m', err);
+  console.error('Action Execution Failed:', err);
   process.exit(1);
 });
