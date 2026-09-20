@@ -11,6 +11,7 @@
 <p align="center">
   <a href="https://github.com/pheonix14/rayz-glass-cards/stargazers"><img src="https://img.shields.io/github/stars/pheonix14/rayz-glass-cards?color=purple&style=for-the-badge" alt="Stars" /></a>
   <a href="https://github.com/pheonix14"><img src="https://img.shields.io/badge/Developed%20By-Pheonix14-blueviolet?style=for-the-badge&logo=github" alt="Developer" /></a>
+  <a href="https://github.com/sponsors/pheonix14"><img src="https://img.shields.io/badge/Sponsor-Pheonix14-ff69b4?style=for-the-badge&logo=github-sponsors" alt="Sponsor" /></a>
   <a href="https://github.com/pheonix14/rayz-glass-cards/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License" /></a>
 </p>
 
@@ -18,15 +19,16 @@
 
 ## ⚡ What are Rayz Glass Cards?
 
-Standard GitHub profile cards look dated. **Rayz Glass Bento Cards** brings high-end glassmorphism, cyber neon accents, and clean Bento Grid proportions to your profile:
+Standard GitHub profile cards look dated and flat. **Rayz Glass Bento Cards** brings high-end glassmorphism, cyber neon accents, and clean Bento Grid proportions to your profile:
 - Dynamic live stats: Repositories, Followers, and Stars.
 - Multi-segment glowing tech stack breakdown bar.
 - Cyber-glow borders and backdrop translucent tiles.
 
 ---
 
-## 🚀 Quickstart
+## 🚀 Step-by-Step Setup Guide
 
+### 1. Add Workflow to Your Profile Repository
 Create `.github/workflows/glass-card.yml` in your profile repository (e.g. `your-username/your-username`):
 
 ```yaml
@@ -34,7 +36,7 @@ name: Update Glass Bento Card
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Every midnight
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
   workflow_dispatch:
 
 permissions:
@@ -64,7 +66,8 @@ jobs:
           git push
 ```
 
-### Embed in Your Profile README:
+### 2. Embed in Your Profile README:
+Add this line to your profile `README.md`:
 ```markdown
 <p align="center">
   <img src="rayz-glass-card.svg" alt="My Developer Portfolio Card" />
@@ -80,17 +83,21 @@ jobs:
 | :--- | :--- | :--- | :--- |
 | `github-token` | GitHub access token | `${{ github.token }}` | **Yes** |
 | `username` | Target GitHub username | `${{ github.repository_owner }}` | No |
-| `theme` | Preset: `cyan-cyber`, `neon-purple`, `luxury-gold` | `cyan-cyber` | No |
+| `theme` | Preset theme: `cyan-cyber`, `neon-purple`, `luxury-gold` | `cyan-cyber` | No |
 | `output-path` | Output path for SVG file | `rayz-glass-card.svg` | No |
 
 ---
 
-## 🤝 Author & Credits
+## 💖 Support, Star & Donate
 
-Developed with ❤️ by **[Pheonix14](https://github.com/pheonix14)**.
+This design framework is created and maintained with passion by **[Pheonix14](https://github.com/pheonix14)**.
 
-⭐ **If you like this design:**
-* **[Star this repository on GitHub](https://github.com/pheonix14/rayz-glass-cards)**
-* **[Follow @pheonix14](https://github.com/pheonix14)**
+If you enjoy the glassmorphism aesthetics:
+* ⭐ **[Star this repository on GitHub](https://github.com/pheonix14/rayz-glass-cards)**!
+* 👤 **[Follow @pheonix14](https://github.com/pheonix14)** for new UI engines and tools.
+* ☕ **[Donate / Sponsor Pheonix14 on GitHub](https://github.com/sponsors/pheonix14)** to support ongoing open-source development!
 
-Licensed under the [MIT License](LICENSE).
+---
+
+## 📄 License
+Licensed under the [MIT License](LICENSE). Copyright (c) 2026 Pheonix14.
