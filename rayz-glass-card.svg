@@ -1,0 +1,108 @@
+<svg width="650" height="340" viewBox="0 0 650 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Canvas -->
+    <linearGradient id="glassCanvas" x1="0" y1="0" x2="650" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070c18" />
+      <stop offset="50%" stop-color="#02040a" />
+      <stop offset="100%" stop-color="#080e1a" />
+    </linearGradient>
+
+    <!-- Bento Tile Glass Gradient -->
+    <linearGradient id="tileGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.35" />
+    </linearGradient>
+
+    <linearGradient id="cyberBorder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0affe4" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+
+    <filter id="glassFilter" x="-10" y="-10" width="670" height="360" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000" flood-opacity="0.75" />
+    </filter>
+  </defs>
+
+  <style>
+    .name { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 20px; fill: #f8fafc; }
+    .handle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 600; fill: #0affe4; }
+    .bio { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #94a3b8; }
+    .stat-num { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 900; font-size: 22px; fill: #f8fafc; }
+    .stat-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; font-weight: 600; fill: #64748b; letter-spacing: 0.5px; }
+    .lang-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 600; fill: #cbd5e1; }
+    .footer { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0affe4; }
+    .footer-right { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; fill: #64748b; }
+  </style>
+
+  <!-- Outer Glass Frame -->
+  <rect x="10" y="10" width="630" height="320" rx="20" fill="url(#glassCanvas)" stroke="#1e293b" stroke-width="1.5" filter="url(#glassFilter)"/>
+
+  <!-- Top Hero Tile -->
+  <rect x="30" y="30" width="370" height="110" rx="14" fill="url(#tileGlass)" stroke="url(#cyberBorder)" stroke-width="1.2" />
+  <circle cx="65" cy="70" r="22" fill="#0f172a" stroke="#0affe4" stroke-width="2" />
+  <text x="65" y="76" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="16" fill="#0affe4">P</text>
+  <text x="100" y="65" class="name">pheonix14</text>
+  <text x="100" y="82" class="handle">@pheonix14</text>
+  <text x="100" y="105" class="bio">Software Engineer & Open Source Builder</text>
+
+  <!-- Top Stats Bento Tiles -->
+  <g transform="translate(415, 30)">
+    <!-- Repos Tile -->
+    <rect x="0" y="0" width="100" height="110" rx="14" fill="url(#tileGlass)" stroke="#334155" stroke-width="1" />
+    <text x="50" y="55" text-anchor="middle" class="stat-num">38</text>
+    <text x="50" y="75" text-anchor="middle" class="stat-lbl">REPOSITORIES</text>
+  </g>
+
+  <g transform="translate(525, 30)">
+    <!-- Followers Tile -->
+    <rect x="0" y="0" width="95" height="110" rx="14" fill="url(#tileGlass)" stroke="#334155" stroke-width="1" />
+    <text x="47" y="55" text-anchor="middle" class="stat-num">4</text>
+    <text x="47" y="75" text-anchor="middle" class="stat-lbl">FOLLOWERS</text>
+  </g>
+
+  <!-- Languages Bento Tile -->
+  <rect x="30" y="155" width="590" height="120" rx="14" fill="url(#tileGlass)" stroke="#334155" stroke-width="1" />
+  <text x="50" y="182" class="lang-lbl" style="fill: #f8fafc; font-weight: 800; font-size: 13px;">⚡ Top Languages &amp; Core Stack</text>
+
+  <!-- Multi-Segment Language Bar -->
+  <g transform="translate(50, 196)">
+    <rect x="0" y="0" width="550" height="10" rx="5" fill="#0f172a" />
+    <rect x="0" y="0" width="248" height="10" fill="#3178c6" rx="3" />
+    <rect x="248" y="0" width="165" height="10" fill="#3572A5" rx="3" />
+    <rect x="413" y="0" width="83" height="10" fill="#0affe4" rx="3" />
+    <rect x="496" y="0" width="55" height="10" fill="#dea584" rx="3" />
+  </g>
+
+  <!-- Language Chips -->
+  <g transform="translate(50, 235)">
+    
+      <g transform="translate(0, 0)">
+        <circle cx="5" cy="5" r="4" fill="#3178c6" />
+        <text x="16" y="9" class="lang-lbl">TypeScript <tspan fill="#64748b">(45%)</tspan></text>
+      </g>
+    
+    
+      <g transform="translate(135, 0)">
+        <circle cx="5" cy="5" r="4" fill="#3572A5" />
+        <text x="16" y="9" class="lang-lbl">Python <tspan fill="#64748b">(30%)</tspan></text>
+      </g>
+    
+    
+      <g transform="translate(270, 0)">
+        <circle cx="5" cy="5" r="4" fill="#0affe4" />
+        <text x="16" y="9" class="lang-lbl">CSS / Glass <tspan fill="#64748b">(15%)</tspan></text>
+      </g>
+    
+    
+      <g transform="translate(405, 0)">
+        <circle cx="5" cy="5" r="4" fill="#dea584" />
+        <text x="16" y="9" class="lang-lbl">Rust <tspan fill="#64748b">(10%)</tspan></text>
+      </g>
+    
+  </g>
+
+  <!-- Divider & Prominent Pheonix14 Attribution -->
+  <line x1="30" y1="290" x2="620" y2="290" stroke="#1e293b" stroke-width="1" />
+  <text x="30" y="312" class="footer">⚡ Developed by Pheonix14</text>
+  <text x="620" y="312" text-anchor="end" class="footer-right">⭐ Star on GitHub: github.com/pheonix14 • Follow @pheonix14</text>
+</svg>

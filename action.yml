@@ -1,0 +1,32 @@
+name: 'Rayz Glass Bento Cards'
+description: 'Generate ultra-modern, glassmorphic cyber-glow Bento Grid portfolio cards for GitHub Profile READMEs.'
+author: 'Pheonix14'
+branding:
+  icon: 'grid'
+  color: 'purple'
+
+inputs:
+  github-token:
+    description: 'GitHub personal access token or GITHUB_TOKEN'
+    required: true
+    default: '${{ github.token }}'
+  username:
+    description: 'Target GitHub username to generate the profile card for'
+    required: false
+    default: '${{ github.repository_owner }}'
+  theme:
+    description: 'Color theme preset: cyan-cyber, neon-purple, or luxury-gold'
+    required: false
+    default: 'cyan-cyber'
+  output-path:
+    description: 'Output path for the generated glassmorphic SVG card'
+    required: false
+    default: 'rayz-glass-card.svg'
+
+outputs:
+  card-path:
+    description: 'Path to the generated glass card SVG'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
